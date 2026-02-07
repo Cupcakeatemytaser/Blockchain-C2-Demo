@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Blob Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <h2>ASCII to Hex Converter</h2>
+
+    <!-- Input field to enter ASCII text -->
+    <input type="text" id="asciiInput" placeholder="Enter ASCII text" style="width: 300px; padding: 5px;">
+
+    <!-- Button to trigger conversion -->
+    <button id="convertToHexBtn">Convert to Hex</button>
+
+    <!-- Display the result -->
+    <div id="result"></div>
+
+
+    <h2>Blob Manager</h2>
+
+    <button id="connectBtn">Connect MetaMask</button>
+    <button id="sendBlobBtn">Send Blob</button>
+    <button id="getBlobBtn">Get Blob</button>
+    <pre id="output"></pre>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

