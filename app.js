@@ -6,7 +6,7 @@ let read_contract;
 let write_contract;
 let blob;
 let hexString = '0x';
-const contractAddress = "0x426F40DC277919a9379Eb12F3AA4F07FE0d11793";  // Deployed contract address
+const contractAddress = "0x......";  // Deployed contract address
 const abi = [
     "function setBytes(bytes data)",
     "function getBytes() view returns (bytes)",
